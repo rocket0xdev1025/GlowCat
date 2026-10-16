@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Glow Cat ($GLOWCAT) · Solana</title>
+  <meta name="description" content="Glow Cat shines through the crypto universe, lighting up charts with radiant vibes, wild memes, and pure magic!">
+  <meta property="og:title" content="Glow Cat ($GLOWCAT)">
+  <meta property="og:description" content="Glow Cat shines through the crypto universe, lighting up charts with radiant vibes, wild memes, and pure magic!">
+  <meta property="og:image" content="banner.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            skyfur: "#7EB6F0",
+            peach: "#F6C2AC",
+            gold: "#F0C14B",
+            cream: "#FFF6EE",
+            ink: "#102028",
+            night: "#07141a"
+          },
+          fontFamily: {
+            display: ["Fredoka", "system-ui", "sans-serif"],
+            body: ["Nunito", "system-ui", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    body {
+      margin: 0;
+      background: #07141a;
+      color: #fff6ee;
+      font-family: Nunito, system-ui, sans-serif;
+    }
+
+    .nature-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -10;
+      background:
+        radial-gradient(ellipse at 50% -10%, rgba(120, 50, 140, 0.28), transparent 52%),
+        linear-gradient(180deg, rgba(7, 20, 26, 0.45) 0%, rgba(7, 20, 26, 0.8) 42%, rgba(6, 14, 20, 0.92) 100%),
+        url("banner.jpg") center / cover no-repeat;
+    }
+
+    .text-glow {
+      background-image: linear-gradient(102deg, #b7dcff 0%, #fff8f4 34%, #f6c2ac 68%, #f0c14b 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .btn-shine {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-shine::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(110deg, transparent 32%, rgba(255, 255, 255, 0.55) 50%, transparent 68%);
+      transform: translateX(-130%);
+      animation: shine 3.8s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    .floaty {
+      animation: floaty 5.5s ease-in-out infinite;
+    }
+
+    .ticker-track {
+      display: flex;
+      width: max-content;
+      animation: ticker 32s linear infinite;
+    }
+
+    .ticker-wrap:hover .ticker-track {
+      animation-play-state: paused;
+    }
+
+    .firefly {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      border-radius: 9999px;
+      background: #e7fff8;
+      box-shadow: 0 0 10px 4px rgba(150, 255, 230, 0.85);
+      animation: drift 7.5s ease-in-out infinite, twinkle 2.6s ease-in-out infinite;
+    }
+
+    .firefly.gold {
+      background: #ffe7a6;
+      box-shadow: 0 0 10px 4px rgba(240, 193, 75, 0.85);
+    }
+
+    .firefly.sm { width: 3px; height: 3px; }
+    .firefly.lg { width: 8px; height: 8px; }
+
+    .menu-close { display: none; }
+    .is-open .menu-open { display: none; }
+    .is-open .menu-close { display: block; }
+
+    ::selection {
+      background: #f6c2ac;
+      color: #102028;
+    }
+
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: #07141a; }
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(#7eb6f0, #f6c2ac);
+      border-radius: 999px;
+    }
+
+    @keyframes shine {
+      0%, 58% { transform: translateX(-130%); }
+      100% { transform: translateX(130%); }
+    }
+
+    @keyframes floaty {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    @keyframes drift {
+      0%, 100% { transform: translate3d(0, 0, 0); }
+      50% { transform: translate3d(14px, -26px, 0); }
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.25; }
+      50% { opacity: 1; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .ticker-track,
+      .firefly,
+      .floaty,
+      .btn-shine::after {
+        animation: none !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-night font-body text-cream antialiased">
+  <div class="nature-bg" aria-hidden="true"></div>
+
+  <a href="#top" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[80] focus:rounded-full focus:bg-gold focus:px-4 focus:py-2 focus:font-display focus:text-ink">Skip to content</a>
+
+  <header id="site-header" class="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-5">
+    <div class="mx-auto max-w-6xl">
+      <nav class="flex items-center justify-between gap-3 rounded-full border border-white/15 bg-night/70 px-3 py-2 shadow-[0_10px_40px_rgba(0,0,0,0.28)] backdrop-blur-xl">
+        <a href="#top" class="flex items-center gap-2.5 rounded-full pr-2" aria-label="Glow Cat home">
+          <img src="logo.png" alt="" width="44" height="44" class="h-11 w-11 rounded-2xl object-cover ring-2 ring-gold/80">
+          <span class="hidden font-display text-lg font-semibold leading-none sm:block">
+            <span class="text-skyfur">Glow</span><span class="text-peach"> Cat</span>
+          </span>
+        </a>
+
+        <div class="hidden items-center gap-7 text-sm font-bold tracking-wide md:flex">
+          <a href="#story" class="text-cream/90 transition hover:text-gold">Story</a>
+          <a href="#how-to-buy" class="text-cream/90 transition hover:text-gold">How to Buy</a>
+          <a href="#chart" class="text-cream/90 transition hover:text-gold">Chart</a>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <a href="https://t.me/GlowCatSol_portal" target="_blank" rel="noopener noreferrer" class="hidden rounded-full transition hover:scale-105 sm:block" aria-label="Glow Cat on Telegram">
+            <img src="tg.png" alt="" width="40" height="40" class="h-10 w-10 rounded-full ring-2 ring-white/20">
+          </a>
+          <a href="https://x.com/GlowCatSol_x" target="_blank" rel="noopener noreferrer" class="hidden rounded-2xl transition hover:scale-105 sm:block" aria-label="Glow Cat on X">
+            <img src="x.png" alt="" width="40" height="40" class="h-10 w-10 rounded-2xl ring-2 ring-white/20">
+          </a>
+          <a href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&amp;output=G4ea3acQYNUFa1VbYbe43Ppj12mXwCx5ra2KDCeypump" target="_blank" rel="noopener noreferrer" class="btn-shine inline-flex items-center rounded-full bg-gradient-to-r from-peach via-gold to-skyfur px-4 py-2 font-display text-sm font-semibold text-ink shadow-[0_8px_24px_rgba(240,193,75,0.28)]">
+            <span class="relative z-10">Buy Now</span>
+          </a>
+          <button type="button" id="menu-btn" class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/10 text-cream md:hidden" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+            <svg class="menu-open h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/>
+            </svg>
+            <svg class="menu-close h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/>
+            </svg>
+          </button>
+        </div>
+      </nav>
+
+      <div id="mobile-menu" class="mt-2 hidden rounded-3xl border border-white/15 bg-night/85 p-4 shadow-2xl backdrop-blur-xl md:hidden">
+        <div class="flex flex-col gap-1 font-display text-lg">
+          <a href="#story" class="rounded-2xl px-3 py-2 hover:bg-white/10">Story</a>
+          <a href="#how-to-buy" class="rounded-2xl px-3 py-2 hover:bg-white/10">How to Buy</a>
+          <a href="#chart" class="rounded-2xl px-3 py-2 hover:bg-white/10">Chart</a>
+        </div>
+        <div class="mt-3 flex items-center gap-3 border-t border-white/10 pt-3">
+          <a href="https://t.me/GlowCatSol_portal" target="_blank" rel="noopener noreferrer" aria-label="Glow Cat on Telegram">
+            <img src="tg.png" alt="" width="44" height="44" class="h-11 w-11 rounded-full">
+          </a>
+          <a href="https://x.com/GlowCatSol_x" target="_blank" rel="noopener noreferrer" aria-label="Glow Cat on X">
+            <img src="x.png" alt="" width="44" height="44" class="h-11 w-11 rounded-2xl">
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="relative">
+      <div class="relative overflow-hidden">
+        <img src="banner.jpg" alt="Glow Cat standing in a glowing forest at sunset" class="block h-[70svh] w-full object-cover object-center md:h-auto md:max-h-[82vh]" fetchpriority="high">
+        <div class="pointer-events-none absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-night/70 to-transparent" aria-hidden="true"></div>
+        <div class="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-night to-transparent" aria-hidden="true"></div>
+        <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+          <span class="firefly lg" style="left:8%;top:22%;animation-delay:-1s"></span>
+          <span class="firefly" style="left:18%;top:58%;animation-delay:-3s"></span>
+          <span class="firefly gold sm" style="left:28%;top:30%;animation-delay:-2s"></span>
+          <span class="firefly sm" style="left:72%;top:24%;animation-delay:-4s"></span>
+          <span class="firefly gold" style="left:84%;top:38%;animation-delay:-1.5s"></span>
+          <span class="firefly" style="left:91%;top:18%;animation-delay:-5s"></span>
+          <span class="firefly gold lg" style="left:64%;top:62%;animation-delay:-2.6s"></span>
+          <span class="firefly sm" style="left:48%;top:16%;animation-delay:-3.4s"></span>
+          <span class="firefly" style="left:12%;top:46%;animation-delay:-6s"></span>
+          <span class="firefly gold sm" style="left:78%;top:70%;animation-delay:-0.6s"></span>
+        </div>
+      </div>
+
+      <div class="relative z-10 mx-auto -mt-16 w-full max-w-3xl px-4 sm:-mt-20">
+        <div class="rounded-[2rem] bg-gradient-to-r from-skyfur via-peach to-gold p-px shadow-[0_20px_80px_rgba(0,0,0,0.35)]">
+          <div class="rounded-[2rem] bg-night/80 px-6 py-7 text-center backdrop-blur-md sm:px-10 sm:py-9">
+            <p class="font-display text-sm font-semibold tracking-[0.42em] text-gold">$GLOWCAT · SOLANA</p>
+            <h1 class="mt-2 font-display text-6xl font-semibold leading-[0.86] sm:text-7xl md:text-8xl"><span class="block text-skyfur">Glow</span><span class="block text-peach">Cat</span></h1>
+            <p class="mx-auto mt-4 max-w-xl text-base leading-relaxed text-cream sm:text-lg">Glow Cat shines through the crypto universe, lighting up charts with radiant vibes, wild memes, and pure magic!</p>
+            <div class="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <a href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&amp;output=G4ea3acQYNUFa1VbYbe43Ppj12mXwCx5ra2KDCeypump" target="_blank" rel="noopener noreferrer" class="btn-shine inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-peach via-gold to-skyfur px-8 py-3.5 font-display text-lg font-semibold text-ink shadow-[0_10px_30px_rgba(240,193,75,0.3)] sm:w-auto">
+                <svg class="relative z-10 h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.4l1.7 5.3 5.3 1.7-5.3 1.7L12 16.4l-1.7-5.3L5 9.4l5.3-1.7L12 2.4zm6.2 11.2.8 2.4 2.4.8-2.4.8-.8 2.4-.8-2.4-2.4-.8 2.4-.8.8-2.4zM6.2 14l.6 1.8 1.8.6-1.8.6-.6 1.8-.6-1.8-1.8-.6 1.8-.6.6-1.8z"/></svg>
+                <span class="relative z-10">Buy Now</span>
+              </a>
+              <a href="https://dexscreener.com/solana/G4ea3acQYNUFa1VbYbe43Ppj12mXwCx5ra2KDCeypump" target="_blank" rel="noopener noreferrer" class="inline-flex w-full items-center justify-center gap-2 rounded-full border border-skyfur/70 bg-white/10 px-8 py-3.5 font-display text-lg font-semibold text-cream transition hover:border-gold hover:text-gold sm:w-auto">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 19h16" stroke-linecap="round"/><path d="M7 16l3.5-4.5 3 2.8L18 8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Chart
+              </a>
+            </div>
+            <div class="mt-5 flex items-center justify-center gap-3">
+              <a href="https://t.me/GlowCatSol_portal" target="_blank" rel="noopener noreferrer" class="transition hover:scale-110" aria-label="Glow Cat on Telegram">
+                <img src="tg.png" alt="" width="48" height="48" class="h-12 w-12 rounded-full ring-2 ring-skyfur/50">
+              </a>
+              <a href="https://x.com/GlowCatSol_x" target="_blank" rel="noopener noreferrer" class="transition hover:scale-110" aria-label="Glow Cat on X">
+                <img src="x.png" alt="" width="48" height="48" class="h-12 w-12 rounded-2xl ring-2 ring-cream/40">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="ticker-wrap relative z-10 overflow-hidden border-y border-white/10 bg-night/60 py-3 backdrop-blur-md" aria-hidden="true">
+      <div class="ticker-track gap-10 px-6 font-display text-sm font-semibold tracking-[0.28em] text-peach">
+        <p class="whitespace-nowrap">$GLOWCAT ✦ GLOW CAT ✦ RADIANT VIBES ✦ WILD MEMES ✦ PURE MAGIC ✦ SOLANA ✦</p>
+        <p class="whitespace-nowrap">$GLOWCAT ✦ GLOW CAT ✦ RADIANT VIBES ✦ WILD MEMES ✦ PURE MAGIC ✦ SOLANA ✦</p>
+      </div>
+    </div>
+
+    <section class="relative z-10 mx-auto max-w-6xl px-4 py-14 sm:px-6">
+      <div data-ca-row class="rounded-[1.75rem] border border-gold/35 bg-[#0c2430]/80 p-4 shadow-2xl backdrop-blur-md sm:flex sm:items-center sm:justify-between sm:gap-6 sm:px-6 sm:py-5">
+        <div class="min-w-0 text-left">
+          <p class="font-display text-xs font-semibold tracking-[0.32em] text-peach">CA</p>
+          <p data-ca class="mt-1 break-all font-mono text-lg text-gold sm:text-xl">G4ea3acQYNUFa1VbYbe43Ppj12mXwCx5ra2KDCeypump</p>
+          <p class="mt-1 text-sm text-cream/70">Match this contract before you swap.</p>
+        </div>
+        <button type="button" data-copy class="mt-4 inline-flex w-full shrink-0 items-center justify-center rounded-full bg-gold px-6 py-3 font-display text-base font-semibold text-ink transition hover:brightness-105 sm:mt-0 sm:w-auto">Copy</button>
+      </div>
+      <p id="copy-status" class="sr-only" role="status"></p>
+
+      <dl class="mt-5 grid grid-cols-2 gap-3 md:grid-cols-4">
+        <div class="rounded-2xl border border-white/10 bg-[#0c2430]/75 px-4 py-4 backdrop-blur-md">
+          <dt class="text-[11px] font-bold uppercase tracking-[0.22em] text-skyfur">Name</dt>
+          <dd class="mt-1 font-display text-xl text-cream">Glow Cat</dd>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-[#0c2430]/75 px-4 py-4 backdrop-blur-md">
+          <dt class="text-[11px] font-bold uppercase tracking-[0.22em] text-skyfur">Symbol</dt>
+          <dd class="mt-1 font-display text-xl text-gold">GLOWCAT</dd>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-[#0c2430]/75 px-4 py-4 backdrop-blur-md">
+          <dt class="text-[11px] font-bold uppercase tracking-[0.22em] text-skyfur">Chain</dt>
+          <dd class="mt-1 font-display text-xl text-cream">Solana</dd>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-[#0c2430]/75 px-4 py-4 backdrop-blur-md">
+          <dt class="text-[11px] font-bold uppercase tracking-[0.22em] text-skyfur">Vibe</dt>
+          <dd class="mt-1 font-display text-xl text-peach">Pure magic</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section id="story" class="scroll-mt-28 relative z-10 mx-auto grid max-w-6xl items-center gap-10 px-4 py-8 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:py-16">
+      <div class="relative mx-auto w-full max-w-sm">
+        <div class="absolute -inset-6 rounded-[2.5rem] bg-gradient-to-br from-skyfur/50 via-peach/40 to-gold/50 blur-3xl" aria-hidden="true"></div>
+        <img src="logo.png" alt="Glow Cat, a fluffy blue cat with a peach crest and a golden coin" width="640" height="640" class="floaty relative w-full rounded-[2rem] shadow-[0_24px_80px_rgba(126,182,240,0.28)] ring-4 ring-white/30">
+      </div>
+      <div>
+        <p class="font-display text-sm font-semibold tracking-[0.32em] text-skyfur">THE STORY</p>
+        <h2 class="mt-2 font-display text-4xl font-semibold leading-tight text-cream sm:text-5xl">A lantern heart in the glowing forest</h2>
+        <p class="mt-5 text-lg leading-relaxed text-cream/85">Deep in a forest where the trees wear constellations, a round blue cat walked out of the sunset with peach-colored ears and a coin that never stopped gleaming. That legend is Glow Cat, now living on Solana.</p>
+        <p class="mt-4 text-lg leading-relaxed text-cream/85">No solemn promises. Just a community circled around radiant vibes, wild memes, and pure magic. Bring a little SOL. Leave with $GLOWCAT. Tell the trees we said hi.</p>
+        <div class="mt-8 grid gap-3 sm:grid-cols-3">
+          <article class="rounded-2xl border border-skyfur/30 bg-[#0c2430]/75 p-4 backdrop-blur-md">
+            <h3 class="font-display text-lg text-skyfur">Radiant vibes</h3>
+            <p class="mt-2 text-sm leading-relaxed text-cream/75">Charts that catch the sunset and refuse to sit in the dark.</p>
+          </article>
+          <article class="rounded-2xl border border-peach/35 bg-[#0c2430]/75 p-4 backdrop-blur-md">
+            <h3 class="font-display text-lg text-peach">Wild memes</h3>
+            <p class="mt-2 text-sm leading-relaxed text-cream/75">A plush legend, a gold coin, and a group chat with no indoor voice.</p>
+          </article>
+          <article class="rounded-2xl border border-gold/40 bg-[#0c2430]/75 p-4 backdrop-blur-md">
+            <h3 class="font-display text-lg text-gold">Pure magic</h3>
+            <p class="mt-2 text-sm leading-relaxed text-cream/75">Moss, fireflies, and a swap that feels like stepping into the clearing.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-to-buy" class="scroll-mt-28 relative z-10 mx-auto max-w-6xl px-4 py-16 sm:px-6">
+      <div class="max-w-2xl">
+        <p class="font-display text-sm font-semibold tracking-[0.32em] text-gold">SOLANA</p>
+        <h2 class="mt-2 font-display text-4xl font-semibold text-cream sm:text-5xl">How to Buy</h2>
+        <p class="mt-4 text-lg leading-relaxed text-cream/80">Four short steps. A wallet, a little SOL, one swap, and $GLOWCAT is yours.</p>
+      </div>
+
+      <div data-ca-row class="mt-8 flex flex-col gap-3 rounded-2xl border border-white/10 bg-[#0c2430]/75 px-4 py-4 backdrop-blur-md sm:flex-row sm:items-center sm:justify-between">
+        <p class="min-w-0 text-sm text-cream/80 sm:text-base">Copy the contract, then keep it beside the swap. <span data-ca class="mt-1 block break-all font-mono text-base text-gold">G4ea3acQYNUFa1VbYbe43Ppj12mXwCx5ra2KDCeypump</span></p>
+        <button type="button" data-copy class="inline-flex shrink-0 items-center justify-center rounded-full border border-gold/60 px-5 py-2.5 font-display font-semibold text-gold transition hover:bg-gold hover:text-ink">Copy</button>
+      </div>
+
+      <ol class="mt-8 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+        <li class="rounded-[1.7rem] border border-white/10 bg-[#0c2430]/80 p-6 shadow-xl backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-peach/50">
+          <span class="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-b from-[#ffe7a3] to-[#d89a22] font-display text-2xl font-bold text-[#5c3e0a] shadow-[0_8px_24px_rgba(240,193,75,0.35)] ring-4 ring-[#fff1c9]/25">1</span>
+          <h3 class="mt-5 font-display text-2xl text-cream">Set up a wallet</h3>
+          <p class="mt-3 text-[15px] leading-relaxed text-cream/75">Install a Solana wallet such as Phantom or Solflare. Write the secret phrase on paper and keep it offline. That phrase is the key to everything you buy.</p>
+        </li>
+        <li class="rounded-[1.7rem] border border-white/10 bg-[#0c2430]/80 p-6 shadow-xl backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-skyfur/50">
+          <span class="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-b from-[#ffe7a3] to-[#d89a22] font-display text-2xl font-bold text-[#5c3e0a] shadow-[0_8px_24px_rgba(240,193,75,0.35)] ring-4 ring-[#fff1c9]/25">2</span>
+          <h3 class="mt-5 font-display text-2xl text-cream">Add SOL</h3>
+          <p class="mt-3 text-[15px] leading-relaxed text-cream/75">Buy SOL or send some from an exchange to your wallet. Leave a little extra SOL in the account so the network fee can clear.</p>
+        </li>
+        <li class="rounded-[1.7rem] border border-white/10 bg-[#0c2430]/80 p-6 shadow-xl backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-gold/50">
+          <span class="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-b from-[#ffe7a3] to-[#d89a22] font-display text-2xl font-bold text-[#5c3e0a] shadow-[0_8px_24px_rgba(240,193,75,0.35)] ring-4 ring-[#fff1c9]/25">3</span>
+          <h3 class="mt-5 font-display text-2xl text-cream">Swap for $GLOWCAT</h3>
+          <p class="mt-3 text-[15px] leading-relaxed text-cream/75">Press Buy Now. The swap opens with SOL in and $GLOWCAT out. Confirm the contract matches the CA on this page, enter an amount, and approve it in your wallet.</p>
+        </li>
+        <li class="rounded-[1.7rem] border border-white/10 bg-[#0c2430]/80 p-6 shadow-xl backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-peach/50">
+          <span class="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-b from-[#ffe7a3] to-[#d89a22] font-display text-2xl font-bold text-[#5c3e0a] shadow-[0_8px_24px_rgba(240,193,75,0.35)] ring-4 ring-[#fff1c9]/25">4</span>
+          <h3 class="mt-5 font-display text-2xl text-cream">Hold the glow</h3>
+          <p class="mt-3 text-[15px] leading-relaxed text-cream/75">When the transaction confirms, $GLOWCAT sits in your wallet. Open the chart, join the forest on Telegram and X, and let the memes run.</p>
+        </li>
+      </ol>
+
+      <div class="mt-8 flex justify-center">
+        <a href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&amp;output=G4ea3acQYNUFa1VbYbe43Ppj12mXwCx5ra2KDCeypump" target="_blank" rel="noopener noreferrer" class="btn-shine inline-flex items-center justify-center rounded-full bg-gradient-to-r from-peach via-gold to-skyfur px-10 py-3.5 font-display text-lg font-semibold text-ink">
+          <span class="relative z-10">Buy Now</span>
+        </a>
+      </div>
+    </section>
+
+    <section id="chart" class="scroll-mt-28 relative z-10 mx-auto max-w-6xl px-4 pb-8 pt-4 sm:px-6">
+      <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <p class="font-display text-sm font-semibold tracking-[0.32em] text-skyfur">DEXSCREENER</p>
+          <h2 class="mt-2 font-display text-4xl font-semibold text-cream sm:text-5xl">Light up the chart</h2>
+          <p class="mt-3 max-w-xl text-cream/75">Watch $GLOWCAT move. The embed follows the project pair on Solana.</p>
+        </div>
+        <a href="https://dexscreener.com/solana/G4ea3acQYNUFa1VbYbe43Ppj12mXwCx5ra2KDCeypump" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 self-start rounded-full border border-skyfur/70 bg-white/10 px-6 py-3 font-display font-semibold text-cream transition hover:border-gold hover:text-gold">
+          Chart
+        </a>
+      </div>
+
+      <div class="mt-6 rounded-[1.8rem] bg-gradient-to-br from-skyfur via-peach to-gold p-px shadow-[0_20px_70px_rgba(0,0,0,0.35)]">
+        <div class="overflow-hidden rounded-[1.75rem] bg-night">
+          <iframe
+            title="Dexscreener chart for GLOWCAT"
+            src="https://dexscreener.com/solana/G4ea3acQYNUFa1VbYbe43Ppj12mXwCx5ra2KDCeypump?embed=1&amp;loadChartSettings=0&amp;trades=0&amp;tabs=0&amp;info=0&amp;chartLeftToolbar=0&amp;chartTheme=dark&amp;theme=dark&amp;chartStyle=1&amp;chartType=usd&amp;interval=15"
+            class="h-[420px] w-full border-0 bg-night sm:h-[540px]"
+            loading="lazy"
+            allow="clipboard-write"
+          ></iframe>
+        </div>
+      </div>
+      <p class="mt-3 text-center text-sm text-cream/60">Pair address G4ea3acQYNUFa1VbYbe43Ppj12mXwCx5ra2KDCeypump. The chart fills in when the contract replaces it. <a class="text-gold underline decoration-gold/40 underline-offset-2 hover:text-peach" href="https://dexscreener.com/solana/G4ea3acQYNUFa1VbYbe43Ppj12mXwCx5ra2KDCeypump" target="_blank" rel="noopener noreferrer">Open on Dexscreener</a></p>
+    </section>
+
+    <section class="relative z-10 mx-auto max-w-4xl px-4 py-16 text-center sm:px-6">
+      <h2 class="text-glow font-display text-4xl font-semibold sm:text-5xl">The forest is brighter with you in it</h2>
+      <p class="mx-auto mt-4 max-w-xl text-lg text-cream/80">Grab $GLOWCAT, share the meme, and keep the fireflies fed.</p>
+      <div class="mt-6 flex flex-wrap items-center justify-center gap-3">
+        <a href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&amp;output=G4ea3acQYNUFa1VbYbe43Ppj12mXwCx5ra2KDCeypump" target="_blank" rel="noopener noreferrer" class="btn-shine inline-flex items-center justify-center rounded-full bg-gradient-to-r from-peach via-gold to-skyfur px-8 py-3.5 font-display text-lg font-semibold text-ink">
+          <span class="relative z-10">Buy Now</span>
+        </a>
+        <a href="https://t.me/GlowCatSol_portal" target="_blank" rel="noopener noreferrer" aria-label="Glow Cat on Telegram" class="transition hover:scale-110">
+          <img src="tg.png" alt="" width="52" height="52" class="h-[52px] w-[52px] rounded-full ring-2 ring-skyfur/40">
+        </a>
+        <a href="https://x.com/GlowCatSol_x" target="_blank" rel="noopener noreferrer" aria-label="Glow Cat on X" class="transition hover:scale-110">
+          <img src="x.png" alt="" width="52" height="52" class="h-[52px] w-[52px] rounded-2xl ring-2 ring-cream/30">
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="relative z-10 border-t border-white/10 bg-night/70 px-4 py-10 backdrop-blur-md">
+    <div class="mx-auto flex max-w-6xl flex-col items-center gap-5 text-center">
+      <a href="#top" class="flex items-center gap-3" aria-label="Back to top">
+        <img src="logo.png" alt="" width="48" height="48" class="h-12 w-12 rounded-2xl object-cover ring-2 ring-peach/70">
+        <span class="font-display text-2xl font-semibold"><span class="text-skyfur">Glow</span> <span class="text-peach">Cat</span></span>
+      </a>
+      <p class="font-display tracking-[0.28em] text-gold">$GLOWCAT · SOLANA</p>
+      <div class="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm font-bold text-cream/80">
+        <a href="#story" class="hover:text-gold">Story</a>
+        <a href="#how-to-buy" class="hover:text-gold">How to Buy</a>
+        <a href="#chart" class="hover:text-gold">Chart</a>
+        <a href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&amp;output=G4ea3acQYNUFa1VbYbe43Ppj12mXwCx5ra2KDCeypump" target="_blank" rel="noopener noreferrer" class="hover:text-gold">Buy Now</a>
+        <a href="https://t.me/GlowCatSol_portal" target="_blank" rel="noopener noreferrer" class="hover:text-gold">Telegram</a>
+        <a href="https://x.com/GlowCatSol_x" target="_blank" rel="noopener noreferrer" class="hover:text-gold">X</a>
+      </div>
+      <p class="max-w-xl text-xs leading-relaxed text-cream/50">$GLOWCAT is a meme coin on Solana. It can go to zero. This page is not financial advice. Always confirm the contract address yourself.</p>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.getElementById("site-header");
+    const menuBtn = document.getElementById("menu-btn");
+    const menu = document.getElementById("mobile-menu");
+    const copyStatus = document.getElementById("copy-status");
+
+    function setMenu(open) {
+      menu.classList.toggle("hidden", !open);
+      header.classList.toggle("is-open", open);
+      menuBtn.setAttribute("aria-expanded", String(open));
+      menuBtn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    }
+
+    menuBtn.addEventListener("click", function () {
+      setMenu(menu.classList.contains("hidden"));
+    });
+
+    menu.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        setMenu(false);
+      });
+    });
+
+    async function copyText(text) {
+      try {
+        await navigator.clipboard.writeText(text);
+      } catch (err) {
+        const area = document.createElement("textarea");
+        area.value = text;
+        area.setAttribute("readonly", "");
+        area.style.position = "fixed";
+        area.style.left = "-9999px";
+        document.body.appendChild(area);
+        area.select();
+        document.execCommand("copy");
+        area.remove();
+      }
+    }
+
+    document.querySelectorAll("[data-copy]").forEach(function (btn) {
+      btn.addEventListener("click", async function () {
+        const row = btn.closest("[data-ca-row]");
+        const value = row.querySelector("[data-ca]").textContent.trim();
+        await copyText(value);
+        const original = btn.textContent;
+        btn.textContent = "Copied";
+        copyStatus.textContent = "Contract address copied";
+        window.setTimeout(function () {
+          btn.textContent = original;
+          copyStatus.textContent = "";
+        }, 1600);
+      });
+    });
+  </script>
+</body>
+</html>
